@@ -17,7 +17,7 @@
 
      'carteira' => 18, ambos os formatos XX ou XX-XXX sao aceitos
  
-     'carteira_nosso_numero - Formato: aaaaaa-bbbbbb-cc, Por Exemplo: 'extra_field' => '222222-333333-21'
+     'carteira_nosso_numero - Formato: aaaaaa-bbbbbb-cc, Por Exemplo: '222222-333333-21'
 		                       Sendo que:
                                        aaaaaa - Especifique o numero do convenio o qual pode conter 6, 7 ou 8 digitos.
                                        bbbbbb - Especifique o numero do contrato.

@@ -130,7 +130,7 @@ class Banco_001 extends Boleto{
        $boleto->febraban['20-44'] = $code;
        
        //save nosso_numero	
-       $boleto->computed['nosso_numero'] = $convenio.$boleto->arguments['nosso_numero'].$checkDigit['digito'];
+       $boleto->computed['nosso_numero'] = $convenio.$nosso_numero.$checkDigit['digito'];
 	
     }
 
