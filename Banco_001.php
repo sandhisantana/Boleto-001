@@ -131,15 +131,7 @@ class Banco_001 extends Boleto{
        $boleto->febraban['20-44'] = $code;
        
        //save nosso_numero
-       $convenio = str_split($convenio);
-       $convenio_print = '';
-       foreach($convenio as $value){
-	 if($value != 0){
-	  //remove left zeros
-	  $convenio_print .= $value;
-	 }
-       }
-       $boleto->computed['nosso_numero'] = $convenio_print.$nosso_numero.$checkDigit['digito'];
+       $boleto->computed['nosso_numero'] = ltrim($convenio, 0).$nosso_numero.$checkDigit['digito'];
     }
 
     //customize object to meet specific needs
