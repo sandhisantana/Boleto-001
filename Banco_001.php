@@ -78,7 +78,7 @@ class Banco_001 extends Boleto{
 		     $convenio     = str_pad($convenio, 14, 0, STR_PAD_LEFT);
 		     $nosso_numero = str_pad($boleto->arguments['nosso_numero'], 9, 0, STR_PAD_LEFT);
 		     
-		     //25 digits long code
+		     //25 digits long
 		     $code         = $convenio.$nosso_numero.$carteira[0];
 		 break;
 		 case 7:
@@ -88,7 +88,7 @@ class Banco_001 extends Boleto{
 		     $convenio     = str_pad($convenio, 13, 0, STR_PAD_LEFT);
 		     $nosso_numero = str_pad($boleto->arguments['nosso_numero'], 10, 0, STR_PAD_LEFT);
 		     
-		     //25 digits long code
+		     //25 digits long
 		     $code  = $convenio.$nosso_numero.$carteira[0];
 		     
 		     //no check digit for nosso_numero
@@ -105,7 +105,8 @@ class Banco_001 extends Boleto{
 			 
 			 //25 digits long code
 			 $code  = $convenio.$nosso_numero.$servico;
-		     }else{
+		     }
+		     else{
 		      // 20-25 -> Convenio                   6
 		      // 26-30 -> Nosso Número (sem dígito)  5
 		      // 31-34 -> Agencia                    4
@@ -114,7 +115,7 @@ class Banco_001 extends Boleto{
 			 $convenio     = str_pad($convenio, 6, 0, STR_PAD_LEFT);
 			 $nosso_numero = str_pad($boleto->arguments['nosso_numero'], 5, 0, STR_PAD_LEFT);
 			 
-			 //25 digits long code
+			 //25 digits long
 			 $code  = $convenio.$nosso_numero.$boleto->arguments['agencia'].$boleto->arguments['conta'].$carteira[0];		         
 		     }
 		break;
@@ -126,12 +127,19 @@ class Banco_001 extends Boleto{
 	   */
 	  
 	}
-       //positons 20 to 44
+       //positions 20 to 44
        $boleto->febraban['20-44'] = $code;
        
-       //save nosso_numero	
-       $boleto->computed['nosso_numero'] = $convenio.$nosso_numero.$checkDigit['digito'];
-	
+       //save nosso_numero
+       $convenio = str_split($convenio);
+       $convenio_print = '';
+       foreach($convenio as $value){
+	 if($value != 0){
+	  //remove left zeros
+	  $convenio_print .= $value;
+	 }
+       }
+       $boleto->computed['nosso_numero'] = $convenio_print.$nosso_numero.$checkDigit['digito'];
     }
 
     //customize object to meet specific needs
