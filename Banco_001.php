@@ -4,6 +4,8 @@
  * See COPYRIGHT.txt and LICENSE.txt.
  *
  * @author Francisco Luz <franciscoferreiraluz@yahoo.com.au>
+ * @mainpage Banco do Brasil Plugin for Boleto Library PHP.
+ * @package BoletoLibraryPHP
  */
 
 class Banco_001 extends Boleto{

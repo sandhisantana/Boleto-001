@@ -152,7 +152,7 @@ $myArguments = array(
 $myBoleto = Boleto::load_boleto($myArguments);
 
 // You probably wont need to set this in a real life production enviroment
-$myBoleto->settingsPropertySetter(array('file_location' => '../'));
+$myBoleto->settingsPropertySetter(array('file_location' => '../..'));
 
 // You can change stuff around like this:
 // $myBoleto->settings['bank_logo']  = 'path-to-logo/logo.jpg';
